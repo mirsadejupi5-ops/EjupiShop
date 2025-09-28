@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>CodePen - A Pen by mirsad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+    
+  <body>
+  <!doctype html>
+<html lang="sq">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dyqani - Produktet</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --accent: #0b74de;
+      --muted: #7a7a85;
+      --success: #2ea44f;
+      --danger: #e74c3c;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: #0b0b0b
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 28px auto;
+      padding: 0 18px
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--accent)
+    }
+
+    .search {
+      flex: 1;
+      max-width: 540px;
+      margin: 0 18px
+    }
+
+    .search input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #e1e4e8;
+      background: #fff
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px
+    }
+
+    .hero .banner {
+      flex: 1;
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #fff 0%, #f8fbff 100%);
+      box-shadow: 0 6px 18px rgba(10, 10, 10, .05)
+    }
+
+    .hero .banner h1 {
+      margin: 0 0 6px;
+      font-size: 22px
+    }
+
+    .hero .banner p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    /* Filters row */
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 12px 0 18px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e6e9ee;
+      font-size: 14px
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(10, 10, 10, .04);
+      display: flex;
+      flex-direction: column
+    }
+
+    .media {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 160px;
+      background: #f0f0f2
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--danger);
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .heart {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, .9);
+      padding: 6px;
+      border-radius: 50%
+    }
+
+    .info {
+      padding-top: 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px
+    }
+
+    .seller {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between
+    }
+
+    .price {
+      font-weight: 800
+    }
+
+    .old {
+      color: var(--muted);
+      text-decoration: line-through;
+      font-size: 13px
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .btn {
+      flex: 1;
+      padding: 9px 10px;
+      border-radius: 10px;
+      border: 0;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border: 1px solid #e6e9ee;
+      color: #111
+    }
+
+    .soldout {
+      background: #f3f4f6;
+      color: var(--muted);
+      cursor: not-allowed
+    }
+
+    /* footer */
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding-bottom: 40px
+    }
+
+    @media(max-width:720px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .media {
+        height: 180px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">EjupiShop</div>
+      <div class="search"><input id="searchInput" placeholder="Kërko produkte..."></div>
+      <div style="min-width:110px;text-align:right">
+        <div style="font-size:14px;color:var(--muted)">Shporta</div>
+        <div id="cartCount" style="font-weight:700">0 artikuj</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="banner">
+        <h1>Oferta më të mira të ditës</h1>
+        <p>Produkte të zgjedhura me zbritje, dërgesë e shpejtë dhe pagesa të sigurta.</p>
+      </div>
+      <div style="width:260px" class="chip">Filtroni sipas: <strong>Zbritje</strong></div>
+    </section>
+
+    <div class="row">
+      <div class="chip">Të gjitha kategoritë</div>
+      <div class="chip">Elektronikë</div>
+      <div class="chip">Shtëpi & Shëndet</div>
+      <div class="chip">Veshje</div>
+      <div class="chip">Më të kërkuarit</div>
+    </div>
+
+    <main>
+      <div class="grid" id="productsGrid">
+        <!-- kartelat do të gjenerohen me JS -->
+      </div>
+    </main>
+
+    <footer>
+      © <span id="yr"></span> EjupiShop — Dizajn shembull per produkte
+    </footer>
+  </div>
+
+  <script>
+    // shembull produkte (ndrysho sipas nevojës)
+    const products = [{
+        id: 1,
+        title: "Kufje Bluetooth Sbox",
+        seller: "Metron",
+        price: 13.99,
+        oldPrice: 29.99,
+        discount: 54,
+        img: "https://m.media-amazon.com/images/I/71a5JVEUmtL.jpg",
+        available: true
+      },
+      {
+        id: 2,
+        title: "Alienware Gaming Mouse",
+        seller: "Buton Electronics",
+        price: 29.90,
+        oldPrice: 95,
+        discount: 69,
+        img: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/peripherals/alienware/peripherals/alienware-trimode-720m-wireless-mouse/assets/mouse-aw720m-wh-gallery-1.psd?fmt=pjpg&pscan=auto&scl=1&wid=4277&hei=3022&qlt=100,1&resMode=sharp2&size=4277,3022&chrss=full&imwidth=5000",
+        available: true
+      },
+      {
+        id: 3,
+        title: "Mauspad YENKEE",
+        seller: "Point Computers",
+        price: 7.99,
+        oldPrice: 19,
+        discount: 58,
+        img: "https://www.yenkee.eu/getmedia/fcf05422-8dbd-45ed-9c7e-3c526a2e131f/YPM35.png.aspx?width=2100&height=2100&ext=.png",
+        available: true
+      },
+      {
+        id: 4,
+        title: "Roller masazhues - Rose Quartz",
+        seller: "Dar",
+        price: 16,
+        oldPrice: 25,
+        discount: 36,
+        img: "https://shopaz.vteximg.com.br/arquivos/ids/194335/image-87ba2915824b4ff98102e1e2bb52a9ab.jpg",
+        available: true
+      },
+      {
+        id: 5,
+        title: "Set kavanozë për erëza",
+        seller: "Buton",
+        price: 27,
+        oldPrice: 45,
+        discount: 40,
+        img: "https://www.75mall.com/images/detailed/152/LT7017.webp",
+        available: true
+      },
+      {
+        id: 6,
+        title: "KUFJE SAMSUNG BUDS",
+        seller: "Aztech",
+        price: 59.99,
+        oldPrice: 129,
+        discount: 53,
+        img: "https://www.foleja.com/cdn-cgi/image/fit=scale-down,format=auto,height=1600,width=1600/media/95/4f/40/1683374448/kufje-samsung-galaxy-buds-2-pro-grafit-met-200000444-2.webp",
+        available: true
+      }
+    ];
+    const productsGrid = document.getElementById('productsGrid');
+    const cartCount = document.getElementById('cartCount');
+
+    function renderProducts(list) {
+      productsGrid.innerHTML = '';
+      list.forEach(p => {
+        const el = document.createElement('article');
+        el.className = 'card';
+        el.innerHTML = `
+          <div class="media">
+            ${p.discount ? `<div class="badge">${p.discount}% Off</div>` : ''}
+            <div class="heart">♡</div>
+            <img src="${p.img}" alt="${p.title}">
+          </div>
+          <div class="info">
+            <div class="title">${p.title}</div>
+            <div class="seller">Dyqani : ${p.seller}</div>
+            <div class="price-row">
+              <div>
+                <div class="price">${p.price} €</div>
+                ${p.oldPrice ? `<div class="old">${p.oldPrice} €</div>` : ''}
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn ${p.available? '' : 'soldout'}" ${p.available? '' : 'disabled'} onclick="addToCart(${p.id})">
+                ${p.available? 'Shto në shportë' : 'Currently unavailable'}
+              </button>
+              <button class="btn secondary" onclick="viewProduct(${p.id})">Shiko</button>
+            </div>
+          </div>
+        `;
+        productsGrid.appendChild(el);
+      });
+    }
+
+    function addToCart(id) {
+      // për demo: thjesht rritim numrin në shportë
+      const current = parseInt(cartCount.textContent) || 0;
+      cartCount.textContent = (current + 1) + ' artikuj';
+      alert('Shtuar në shportë (demo).');
+    }
+
+    function viewProduct(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+      alert(p.title + "\\nÇmim: " + p.price + " €\\nDyqani: " + p.seller);
+    }
+    // kërkim i thjeshtë
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = products.filter(p => p.title.toLowerCase().includes(q) || p.seller.toLowerCase().includes(q));
+      renderProducts(filtered);
+    });
+    // init
+    renderProducts(products);
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
